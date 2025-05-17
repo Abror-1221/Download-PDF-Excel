@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null; // No layout for PDF
+}
+
+@model DocumentationWebApp.Areas.Entry.Models.TableDataViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Book Data PDF</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 5px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library Book Data</h1>
+
+    @if (!string.IsNullOrEmpty(Model.SearchId))
+    {
+        <p>Filter: BookId starts with '@Model.SearchId'</p>
+    }
+
+    <table>
+        <thead>
+            <tr>
+                <th>BookId</th>
+                <th>Book Title</th>
+                <th>Category</th>
+                <th>Available</th>
+                <th>Borrowed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td>@book.BookId</td>
+                    <td>@book.Title</td>
+                    <td>@book.Category</td>
+                    <td>@book.Available</td>
+                    <td>@book.Borrowed</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

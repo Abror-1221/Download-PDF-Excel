@@ -1,0 +1,22 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS / IDE cache
+*.DS_Store
+*.dbmdl
+*.pdb
+*.log
+
+# Rotativa wkhtmltopdf (optional, kalau mau exclude)
+# wwwroot/Rotativa/*.exe
+
+# Others (optional)
+*.swp
+*.bak
